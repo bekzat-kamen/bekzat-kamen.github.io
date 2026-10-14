@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Бегзат Камен | Системный и бизнес-аналитик</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Подключаем Mermaid.js для авто-рендеринга Sequence Diagram прямо в браузере -->
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+  </script>
+</head>
+<body>
+
+  <!-- Навигация -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <span class="logo">BK<span class="dot">.</span></span>
+      <div class="nav-links">
+        <a href="#about">Обо мне</a>
+        <a href="#skills">Стек</a>
+        <a href="#experience">Опыт</a>
+        <a href="#artifacts">Артефакты</a>
+        <a href="#contacts" class="btn-contact">Связаться</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <!-- Hero Секция -->
+    <header class="hero" id="about">
+      <div class="hero-badge">System & Business Analyst</div>
+      <h1>Камен Бегзат</h1>
+      <p class="subtitle">Проектирование интеграций по REST API, системная архитектура, формализация требований и моделирование процессов.</p>
+      
+      <div class="hero-metrics">
+        <div class="metric">
+          <span class="num">6+</span>
+          <span class="label">лет опыта в IT</span>
+        </div>
+        <div class="metric">
+          <span class="num">REST / OpenAPI</span>
+          <span class="label">архитектура контрактов</span>
+        </div>
+        <div class="metric">
+          <span class="num">Backend Core</span>
+          <span class="label">Go, Python, SQL</span>
+        </div>
+      </div>
+
+      <div class="hero-actions">
+        <a href="#contacts" class="btn primary">Написать в Telegram</a>
+        <a href="https://github.com/bekzat-kamen" target="_blank" class="btn secondary">GitHub Profile ↗</a>
+      </div>
+    </header>
+
+    <!-- Стек и навыки -->
+    <section id="skills" class="section">
+      <h2 class="section-title">Технический стек и артефакты</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="card-icon">📐</div>
+          <h3>Анализ и требования</h3>
+          <p>Сбор и формализация требований, разработка ТЗ, User Stories, Acceptance Criteria (Gherkin), Use Cases, декомпозиция задач для спринтов.</p>
+          <div class="tags">
+            <span>User Stories</span><span>AC / Gherkin</span><span>BPMN</span><span>Sequence (UML)</span><span>CJM</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="card-icon">🔌</div>
+          <h3>Интеграции и API</h3>
+          <p>Проектирование взаимодействия систем, разработка контрактов OpenAPI/Swagger, вебхуки, маппинг полей, сценарии обработки таймаутов и идемпотентности.</p>
+          <div class="tags">
+            <span>REST API</span><span>OpenAPI 3.0</span><span>JSON / XML</span><span>Postman</span><span>Webhooks</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="card-icon">💾</div>
+          <h3>Данные и инфраструктура</h3>
+          <p>Проектирование реляционных схем БД, аудит данных, написание сложных SQL-запросов (JOIN, CTE), работа с логами и окружением.</p>
+          <div class="tags">
+            <span>PostgreSQL</span><span>MySQL</span><span>Docker</span><span>Git</span><span>Linux</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="card-icon">⚙️</div>
+          <h3>Инженерный кругозор</h3>
+          <p>Понимание серверной логики и ограничений бэкенда (Go, Python). Опыт в QA позволяет закладывать пограничные сценарии (Edge Cases) на этапе ТЗ.</p>
+          <div class="tags">
+            <span>Golang</span><span>Python</span><span>QA Testing</span><span>LLM / AI API</span><span>Jira / Confluence</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Опыт работы -->
+    <section id="experience" class="section">
+      <h2 class="section-title">Опыт работы</h2>
+      <div class="timeline">
+        
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <h3>Системный аналитик интеграций / Solutions Engineer</h3>
+              <span class="period">Июль 2024 — Настоящее время</span>
+            </div>
+            <div class="company">ЧК "Documentolog Global Limited" (B2B SaaS / СЭД)</div>
+            <ul>
+              <li>Проектирование интеграционных шлюзов между облачной платформой и внешними ERP/CRM-системами по REST API.</li>
+              <li>Разработка спецификаций OpenAPI/Swagger, форматов обмена данными (JSON/XML) и Sequence-диаграмм.</li>
+              <li>Формализация требований клиентов в BPMN, описание User Stories и Acceptance Criteria.</li>
+              <li>Декомпозиция интеграционных фич на пошаговые технические задачи для разработки и QA.</li>
+              <li>Локализация инцидентов с помощью SQL-скриптов и анализа логов в PostgreSQL.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <h3>Зам. директора по IT / Преподаватель профильных дисциплин</h3>
+              <span class="period">Сентябрь 2019 — Июнь 2024</span>
+            </div>
+            <div class="company">Алматинский экономический колледж / АТУ</div>
+            <ul>
+              <li>Руководство эксплуатацией информационной системы Platonus и веб-портала.</li>
+              <li>Преподавание: базы данных, алгоритмы и программирование (Python), компьютерные сети и Linux.</li>
+              <li>Опыт фасилитации, публичных презентаций и структурирования сложных технических концепций.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <h3>QA инженер</h3>
+              <span class="period">Ноябрь 2021 — Январь 2022</span>
+            </div>
+            <div class="company">OneTech</div>
+            <ul>
+              <li>Интеграционное и функциональное тестирование банковских систем.</li>
+              <li>Разработка тест-кейсов, баг-репортов и проверка соответствия фактического поведения спецификациям.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Интерактивные примеры артефактов (Киллер-фича портфолио!) -->
+    <section id="artifacts" class="section">
+      <h2 class="section-title">Примеры рабочих артефактов</h2>
+      <p class="section-subtitle">Как я документирую интеграции: живая диаграмма взаимодействия и контракт API</p>
+
+      <div class="artifact-box">
+        <div class="artifact-header">
+          <span class="badge">UML Sequence Diagram</span>
+          <h4>Сценарий: Обработка входящего сообщения через WhatsApp и синхронизация с CRM</h4>
+        </div>
+        <div class="artifact-content">
+          <!-- Mermaid рендерит эту схему автоматически -->
+          <pre class="mermaid">
+sequenceDiagram
+    autonumber
+    actor Client as Клиент (WhatsApp)
+    participant Meta as Meta / WABA Gateway
+    participant Platform as Integration Gateway
+    participant Queue as Redis / Message Queue
+    participant CRM as CRM API (amoCRM/Bitrix24)
+
+    Client->>Meta: Входящее сообщение
+    Meta->>Platform: Webhook POST /v1/webhooks/whatsapp
+    Note over Platform: Проверка X-Hub-Signature & Idempotency Key
+    Platform-->>Meta: HTTP 200 OK
+    Platform->>Queue: Publish event [message.received]
+    
+    Queue->>Platform: Consume event
+    Platform->>CRM: GET /api/v4/contacts?query=phone
+    alt Контакт не найден
+        Platform->>CRM: POST /api/v4/contacts & POST /api/v4/leads
+        CRM-->>Platform: 201 Created (LeadID: 1042)
+    else Контакт найден
+        Platform->>CRM: GET /api/v4/leads (Активная сделка)
+    end
+
+    Platform->>CRM: POST /api/v4/leads/{id}/notes (Таймлайн чата)
+    CRM-->>Platform: 200 OK
+          </pre>
+        </div>
+      </div>
+
+      <div class="artifact-box">
+        <div class="artifact-header">
+          <span class="badge">OpenAPI 3.0 / JSON Contract</span>
+          <h4>Пример контракта входящего вебхука для интеграционного сервиса</h4>
+        </div>
+        <div class="artifact-content code-block">
+<pre><code>{
+  "event": "message.received",
+  "timestamp": 1728892800,
+  "message_id": "wamid.HBgLMzg3MDU5OTU5ODAVAgASGBQz",
+  "sender": {
+    "phone": "+77011234567",
+    "name": "Азамат"
+  },
+  "payload": {
+    "type": "text",
+    "text": "Здравствуйте! Интересует подключение интеграции с amoCRM."
+  },
+  "context": {
+    "channel_id": "ch_wa_corporate_01",
+    "is_reply": false
+  }
+}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contacts" class="section contacts-section">
+      <div class="contact-card">
+        <h2>Давайте поработаем вместе</h2>
+        <p>Готов к обсуждению задач системного анализа в офисе, гибридном или удаленном формате в г. Алматы.</p>
+        
+        <div class="contact-methods">
+          <a href="mailto:begzat.kamen@gmail.com" class="contact-item">
+            <span class="icon">✉️</span>
+            <div>
+              <div class="label">Email</div>
+              <div class="val">begzat.kamen@gmail.com</div>
+            </div>
+          </a>
+          <a href="tel:+77054857873" class="contact-item">
+            <span class="icon">📞</span>
+            <div>
+              <div class="label">Телефон</div>
+              <div class="val">+7 (705) 485-78-73</div>
+            </div>
+          </a>
+          <a href="https://github.com/bekzat-kamen" target="_blank" class="contact-item">
+            <span class="icon">🐙</span>
+            <div>
+              <div class="label">GitHub</div>
+              <div class="val">github.com/bekzat-kamen</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Камен Бегзат. Портфолио системного и бизнес-аналитика.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
