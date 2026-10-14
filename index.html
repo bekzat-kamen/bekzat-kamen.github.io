@@ -317,7 +317,7 @@
       line-height: 1.5;
     }
 
-    /* Стили для блока User Story & AC */
+    /* User Story Block */
     .story-block {
       background: #0d1117;
       padding: 20px;
@@ -430,10 +430,14 @@
     }
   </style>
 
-  <!-- Подключение Mermaid.js для автоматической отрисовки Sequence Diagram прямо в браузере -->
-  <script type="module">
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+  <!-- Безопасное подключение Mermaid.js -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      if (typeof mermaid !== 'undefined') {
+        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+      }
+    });
   </script>
 </head>
 <body>
@@ -455,7 +459,7 @@
   <main class="container">
     <!-- Hero Секция -->
     <header class="hero" id="about">
-      <div class="hero-badge">System & Business Analyst</div>
+      <div class="hero-badge">System &amp; Business Analyst</div>
       <h1>Камен Бегзат</h1>
       <p class="subtitle">Проектирование интеграций по REST API, системная архитектура, формализация требований и моделирование сквозных процессов.</p>
       
@@ -582,19 +586,19 @@
     <!-- Интерактивные примеры артефактов -->
     <section id="artifacts" class="section">
       <h2 class="section-title">Примеры рабочих артефактов</h2>
-      <p class="section-subtitle">Реальный кейс: AI-ассистент в мессенджере с Function Calling, бронированием и подтверждением оплаты</p>
+      <p class="section-subtitle">Кейс: AI-ассистент в мессенджере с Function Calling, бронированием и подтверждением оплаты</p>
 
       <!-- 1. User Story & Acceptance Criteria -->
       <div class="artifact-box">
         <div class="artifact-header">
           <span class="badge">Business Analysis / Gherkin</span>
-          <h4>User Story & Критерии приёмки (AC)</h4>
+          <h4>User Story и критерии приёмки (AC)</h4>
         </div>
         <div class="artifact-content story-block">
           <p class="story-text">
             <strong>As a</strong> клиент компании,<br>
             <strong>I want</strong> оформлять заказ и получать платежную ссылку прямо в мессенджере через AI-бота,<br>
-            <strong>So that</strong> мне не приходилось ждать ответа оператора для типовых покупок.
+            <strong>So that</strong> мне не приходилось ожидать ответа оператора для типовых покупок.
           </p>
           <div class="ac-list">
             <div class="ac-item">
@@ -624,32 +628,32 @@
 sequenceDiagram
     autonumber
     actor User as Клиент
-    participant WA as WhatsApp / Webhook
-    participant Core as API Gateway / Orchestrator
-    participant LLM as AI Core (LLM Function Calling)
+    participant WA as WhatsApp Webhook
+    participant Core as Integration Gateway
+    participant LLM as AI Core LLM
     participant Pay as Payment Gateway
-    participant CRM as CRM / ERP Core
+    participant CRM as CRM Core
 
-    User->>WA: "Хочу оформить тариф Pro на месяц"
-    WA->>Core: Webhook POST /events/message
-    Note over Core: Дедупликация (Idempotency Key в Redis)
-    Core->>LLM: POST /v1/chat/completions (контекст + tools)
+    User->>WA: Хочу оформить тариф Pro
+    WA->>Core: Webhook POST events message
+    Note over Core: Дедупликация Idempotency Key в Redis
+    Core->>LLM: POST chat completions
     
-    Note over LLM: Распознан интент "create_payment"
-    LLM-->>Core: Tool Call: create_payment(item="pro_1m", amount=15000)
+    Note over LLM: Распознан интент create_payment
+    LLM-->>Core: Tool Call create_payment(item, amount)
     
-    Core->>Pay: POST /v1/invoices (создание счета)
-    Pay-->>Core: 201 Created { payment_url: "pay.kz/inv_42" }
+    Core->>Pay: POST invoices
+    Pay-->>Core: 201 Created payment_url
     
-    par Уведомление клиента и лог в CRM
-        Core->>WA: Отправка кликабельной кнопки на оплату
-        Core->>CRM: PATCH /deals/{id} (статус "Выставлен счёт")
+    par Оповещение клиента и лог
+        Core->>WA: Отправка ссылки на оплату
+        Core->>CRM: PATCH deals (статус Выставлен счет)
     end
 
-    opt Пользователь оплатил
-        Pay->>Core: Webhook POST /webhooks/payment_success
-        Core->>CRM: POST /deals/{id}/won (Перевод в "Оплачено")
-        Core->>WA: "Оплата получена! Доступ активирован."
+    opt Успешная оплата
+        Pay->>Core: Webhook payment_success
+        Core->>CRM: POST deals won
+        Core->>WA: Оплата получена! Доступ активирован
     end
           </pre>
         </div>
